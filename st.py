@@ -6,7 +6,7 @@ import mentalPriming
 import trainingCalendar
 import trainingLog
 
-db_name = r'/Users/tomfenemore/PycharmProjects/SailDB/local_sql.db'
+db_name = r'local_sql.db'
 conn = db.create_connection(db_name)
 db.create_table(conn)
 conn = db.create_connection(db_name)
