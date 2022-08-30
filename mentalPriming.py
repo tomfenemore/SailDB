@@ -7,6 +7,7 @@ def page():
     df = pd.read_sql_query('SELECT * FROM Training', conn)
     venue = list(df['Venue'].unique())
     priority = list(df['FPriority'].unique())
+    dayType = list(df['DayType'].unique())
     wind_dir = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']
     wind_str = ['0-7knts', '7-12knts', '12-15knts', '15-18knts', '18-23knts', '23-27knts', '27+knts']
     st.header('Mental Priming')
@@ -28,7 +29,14 @@ def page():
     if pri == 'Add':
         pri = st.text_input('New Priority')
 
-    data = (str, dir, date, ven, pri, 0)
+    dayType.append('Add')
+    dtyp = st.selectbox('Day Type', dayType)
+    if dtyp == 'Add':
+        dtyp = st.text_input('New Day Type')
+
+    win = st.text_input('What does a winner look like?')
+
+    data = (str, dir, date, ven, pri, dtyp, win, 0)
     if st.button('Add Training Session'):
         db.putrow(data, conn)
 

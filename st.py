@@ -13,10 +13,10 @@ conn = db.create_connection(db_name)
 
 st.title('Dais Condition Analysis')
 
-a = st.sidebar.selectbox('Mode', ['Mental Priming', 'To Debrief', 'Training Log', 'Condition Review',  'Training Calendar'])
+a = st.sidebar.selectbox('Mode', ['Mental Priming', 'To Debrief', 'Training Log',   'Training Calendar']) #'Condition Review',
 
-if a == 'Condition Review':
-    conditionReview.page()
+#if a == 'Condition Review':
+    #conditionReview.page()
 
 if a == 'To Debrief':
     conditionLogging.page()

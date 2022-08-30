@@ -10,7 +10,11 @@ def page():
     st.header('Condition Logging')
     venue = list(df['Venue'].unique())
     venue.append('All')
+    daytype = list(df['DayType'].unique())
+    daytype.append('All')
+
     ven = st.sidebar.selectbox('Venue', venue)
+    dtyp = st.sidebar.selectbox('Day Type', daytype)
     fore = st.sidebar.selectbox('Forecast or True', ['Forecast', 'True'])
     if fore == 'Forecast':
         d = 'FWindDirection'
@@ -24,6 +28,11 @@ def page():
         if ven == i:
             if ven != 'All':
                 df = df[df['Venue'] == ven]
+
+    for i in daytype:
+        if dtyp == i:
+            if dtyp != 'All':
+                df = df[df['DayType'] == dtyp]
 
     direction = list(df[d].unique())
     direction.append('All')
@@ -49,8 +58,10 @@ def page():
                 with st.expander(df['Date'].iloc[i] + ' ' + df['Venue'].iloc[i]):
                     st.write('Wind: ' + df['WindStrength'].iloc[i] + ' ' + df['WindDirection'].iloc[i])
                     st.write('Forecast: ' + df['FWindStrength'].iloc[i] + ' ' + df['FWindDirection'].iloc[i])
-                    st.write('Priority:' +df['Priority'].iloc[i])
+                    st.write('Day Type:' + df['DayType'].iloc[i])
+                    st.write('Priority:' + df['Priority'].iloc[i])
                     st.write('Expected Priority:' + df['FPriority'].iloc[i])
+                    st.write('Winner:' + df['Winner'].iloc[i])
                     st.write('Notes: ' + df['Notes'].iloc[i])
                     st.write('Video: ' + df['Video'].iloc[i])
 
@@ -59,8 +70,10 @@ def page():
                 with st.expander(df['Date'].iloc[i] + ' ' + df['Venue'].iloc[i]):
                     st.write('Wind: ' + df['WindStrength'].iloc[i] + ' ' + df['WindDirection'].iloc[i])
                     st.write('Forecast: ' + df['FWindStrength'].iloc[i] + ' ' + df['FWindDirection'].iloc[i])
+                    st.write('Day Type:' + df['DayType'].iloc[i])
                     st.write('Priority:' + df['Priority'].iloc[i])
                     st.write('Expected Priority:' + df['FPriority'].iloc[i])
+                    st.write('Winner:' + df['Winner'].iloc[i])
                     st.write('Notes: ' + df['Notes'].iloc[i])
                     st.write('Video: ' + df['Video'].iloc[i])
         elif i % 3 == 2:
@@ -68,8 +81,10 @@ def page():
                 with st.expander(df['Date'].iloc[i] + ' ' + df['Venue'].iloc[i]):
                     st.write('Wind: ' + df['WindStrength'].iloc[i] + ' ' + df['WindDirection'].iloc[i])
                     st.write('Forecast: ' + df['FWindStrength'].iloc[i] + ' ' + df['FWindDirection'].iloc[i])
+                    st.write('Day Type:' + df['DayType'].iloc[i])
                     st.write('Priority:' + df['Priority'].iloc[i])
                     st.write('Expected Priority:' + df['FPriority'].iloc[i])
+                    st.write('Winner:'+ df['Winner'].iloc[i])
                     st.write('Notes: ' + df['Notes'].iloc[i])
                     st.write('Video: ' + df['Video'].iloc[i])
 

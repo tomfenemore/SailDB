@@ -17,6 +17,8 @@ def create_table(conn):
                   r'FWindStrength text, ' \
                   r'FWindDirection text,' \
                   r'FPriority text,' \
+                  r'DayType text,'\
+                  r'Winner text,'\
                   r'Priority text,' \
                   r'Date text,' \
                   r'Venue text,' \
@@ -30,7 +32,7 @@ def create_table(conn):
         print(e)
 
 def putrow(data, conn):
-    sql = f'INSERT INTO Training (FWindStrength,FWindDirection,Date,Venue,FPriority,Debrief) VALUES (?,?,?,?,?,?)'
+    sql = f'INSERT INTO Training (FWindStrength,FWindDirection,Date,Venue,FPriority,DayType,Winner,Debrief) VALUES (?,?,?,?,?,?,?,?)'
     cur = conn.cursor()
     cur.execute(sql, data)
     conn.commit()
@@ -54,4 +56,10 @@ def update_training(conn, training):
                       id = ?'''
     cur = conn.cursor()
     cur.execute(sql, training)
+    conn.commit()
+
+def del_row(conn, id):
+    sql = 'DELETE FROM Training WHERE id = ?'
+    cur = conn.cursor()
+    cur.execute(sql, (id,))
     conn.commit()
