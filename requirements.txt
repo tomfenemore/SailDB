@@ -1,6 +1,4 @@
-pandas
-plotly
-streamlit
-sqlite3
-streamlit-card
-plotly-express
+pandas == 1.4.3
+plotly == 5.10.0
+streamlit == 1.12.0
+plotly-express == 0.4.1
