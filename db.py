@@ -58,6 +58,12 @@ def update_training(conn, training):
     cur.execute(sql, training)
     conn.commit()
 
+def edit_notes(data, conn):
+    sql = '''UPDATE Training SET Winner=?, Notes=?, Video=? WHERE id = ?'''
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+
 def del_row(conn, id):
     sql = 'DELETE FROM Training WHERE id = ?'
     cur = conn.cursor()

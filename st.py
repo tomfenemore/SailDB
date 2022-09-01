@@ -2,6 +2,7 @@ import streamlit as st
 import conditionLogging
 import db
 import conditionReview
+import editTraining
 import mentalPriming
 import trainingCalendar
 import trainingLog
@@ -13,7 +14,7 @@ conn = db.create_connection(db_name)
 
 st.title('Dais Condition Analysis')
 
-a = st.sidebar.selectbox('Mode', ['Mental Priming', 'To Debrief', 'Training Log',   'Training Calendar']) #'Condition Review',
+a = st.sidebar.selectbox('Mode', ['Mental Priming', 'To Debrief', 'Training Log',   'Training Calendar', 'Edit Training']) #'Condition Review',
 
 #if a == 'Condition Review':
     #conditionReview.page()
@@ -29,6 +30,9 @@ if a == 'Training Log':
 
 if a == 'Mental Priming':
     mentalPriming.page()
+
+if a == 'Edit Training':
+    editTraining.page()
 
 
 
