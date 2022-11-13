@@ -4,7 +4,7 @@ import db
 
 
 def page():
-    conn = db.create_connection(r'/Users/tomfenemore/PycharmProjects/SailDB/local_sql.db')
+    conn = db.create_connection(r'local_sql.db')
     df = pd.read_sql_query('SELECT * FROM Training WHERE Debrief=1', conn)
     st.header('Condition Logging')
     venue = list(df['Venue'].unique())

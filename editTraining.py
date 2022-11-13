@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def page():
-    conn = db.create_connection(r'/Users/tomfenemore/PycharmProjects/SailDB/local_sql.db')
+    conn = db.create_connection(r'local_sql.db')
     df = pd.read_sql_query('SELECT * FROM Training', conn)
     st.dataframe(df)
     id_list = list(df['id'].unique())

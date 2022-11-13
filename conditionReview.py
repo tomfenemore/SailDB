@@ -7,7 +7,7 @@ import plotly.express as px
 
 
 def page():
-    conn = db.create_connection(r'/Users/tomfenemore/PycharmProjects/SailDB/local_sql.db')
+    conn = db.create_connection(r'local_sql.db')
     df = pd.read_sql_query('SELECT * FROM Training', conn)
     venue = list(df['Venue'].unique())
     ven = st.sidebar.selectbox('Venue', venue)

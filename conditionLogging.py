@@ -4,7 +4,7 @@ import db
 
 
 def page():
-    conn = db.create_connection(r'/Users/tomfenemore/PycharmProjects/SailDB/local_sql.db')
+    conn = db.create_connection(r'local_sql.db')
     df = pd.read_sql_query('SELECT * FROM Training WHERE Debrief=0', conn)
     priority = list(df['FPriority'].unique())
     priority.append('Add')
