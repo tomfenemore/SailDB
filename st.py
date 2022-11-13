@@ -11,9 +11,7 @@ db_name = r'local_sql.db'
 conn = db.create_connection(db_name)
 db.create_table(conn)
 conn = db.create_connection(db_name)
-data = ('', '', '', '', '', '', '', '')
-db.putrow(data, conn)
-conn = db.create_connection(db_name)
+
 
 st.title('Dais Condition Analysis')
 
