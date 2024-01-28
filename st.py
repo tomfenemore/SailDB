@@ -5,6 +5,7 @@ import conditionReview
 import mentalPriming
 import trainingCalendar
 import trainingLog
+import AI_Chat
 
 db_name = r'local_sql.db'
 conn = db.create_connection(db_name)
@@ -13,7 +14,12 @@ conn = db.create_connection(db_name)
 
 st.title('Dais Condition Analysis')
 
-a = st.sidebar.selectbox('Mode', ['Mental Priming', 'To Debrief', 'Training Log',   'Training Calendar']) #'Condition Review',
+a = st.sidebar.selectbox('Mode', [
+    'Mental Priming',
+    'To Debrief', 
+    'Training Log',   
+    'Training Calendar', 
+    'AI Chat']) #'Condition Review',
 
 #if a == 'Condition Review':
     #conditionReview.page()
@@ -29,6 +35,9 @@ if a == 'Training Log':
 
 if a == 'Mental Priming':
     mentalPriming.page()
+
+if a == 'AI Chat':
+    AI_Chat.page()
 
 
 

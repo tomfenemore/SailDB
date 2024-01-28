@@ -1,3 +1,3 @@
-python38 -m venv venv
+/usr/local/bin/python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt 
